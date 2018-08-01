@@ -49,41 +49,53 @@ var game = {
             }       
     },
     done: function() {
-        $.each($('input [name="question-0]":checked'),function(){
+        $.each($('input [name="question-0"]:checked'),function(){
             if($(this).val()==question[0].correctAsnwer){
                 game.correct++;
             } else  {
                 game.incorrect++;
             }  
         });
-        $.each($('input [name="question-1]":checked'),function(){
+        $.each($('input [name="question-1"]:checked'),function(){
             if($(this).val()==question[1].correctAsnwer){
                 game.correct++;
             } else  {
                 game.incorrect++;
             }  
         });
-        $.each($('input [name="question-2]":checked'),function(){
+        $.each($('input [name="question-2"]:checked'),function(){
             if($(this).val()==question[2].correctAsnwer){
                 game.correct++;
             } else  {
                 game.incorrect++;
             }  
         });
-        $.each($('input [name="question-3]":checked'),function(){
+        $.each($('input [name="question-3"]:checked'),function(){
             if($(this).val()==question[3].correctAsnwer){
                 game.correct++;
             } else  {
                 game.incorrect++;
             }  
         });
-        $.each($('input [name="question-4]":checked'),function(){
+        $.each($('input [name="question-4"]:checked'),function(){
             if($(this).val()==question[4].correctAsnwer){
                 game.correct++;
             } else  {
                 game.incorrect++;
             }  
         });
-    }
+
+        this.result();
+        },
+        result: function() {
+            clearInterval(timer);
+            $("#subwrapper h2").remove();
+            $("#subwrapper").html("<h2>Game Over</h2>");
+            $("#subrapper").append("<h3>Correct Answers: "+this.correct+"</h3>");
+            $("#subrapper").append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
+            
+        }
+
+   
 }
     
